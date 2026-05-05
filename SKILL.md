@@ -2,7 +2,7 @@
 
 > 业务流程图 × 系统架构图，一句话出图
 
-**版本**: 1.1.0
+**版本**: 1.1.1
 
 ---
 
@@ -301,3 +301,62 @@
 - 参考模板：
   - `泳道图架构图一句话生成/references/swimlane-template.xml`
   - `泳道图架构图一句话生成/references/arch-template.xml`
+---
+
+## 完整生成示例
+
+### 示例：电商订单处理泳道图
+
+**用户输入**：
+> 画一个电商订单处理流程图，包含用户、订单系统、库存系统、支付系统4个角色，从下单到发货的完整流程
+
+**生成步骤**：
+
+1. **识别角色**：用户、订单系统、库存系统、支付系统
+2. **识别流程**：
+   - 用户 → 提交订单 → 订单系统
+   - 订单系统 → 扣减库存 → 库存系统
+   - 订单系统 → 请求支付 → 支付系统
+   - 支付成功 → 发货 → 用户
+3. **判断分支**：支付成功/失败
+4. **泳道方向**：横向（4个角色，流程步骤适中）
+
+**生成输出**：
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tools="ext">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <!-- 泳道1：用户 -->
+    <mxCell id="swimlane1" value="用户" style="swimlane;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="0" y="0" width="300" height="600" as="geometry" />
+    </mxCell>
+    <!-- 开始节点 -->
+    <mxCell id="node1" value="开始下单" style="ellipse;fillColor=#82b366;strokeColor=#333333;fontColor=#000000;" vertex="1" parent="swimlane1">
+      <mxGeometry x="100" y="50" width="100" height="60" as="geometry" />
+    </mxCell>
+    <!-- 订单系统泳道 -->
+    <mxCell id="swimlane2" value="订单系统" style="swimlane;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="300" y="0" width="300" height="600" as="geometry" />
+    </mxCell>
+    <!-- 库存系统泳道 -->
+    <mxCell id="swimlane3" value="库存系统" style="swimlane;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="600" y="0" width="300" height="600" as="geometry" />
+    </mxCell>
+    <!-- 支付系统泳道 -->
+    <mxCell id="swimlane4" value="支付系统" style="swimlane;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="900" y="0" width="300" height="600" as="geometry" />
+    </mxCell>
+    <!-- 结束节点 -->
+    <mxCell id="node8" value="收到货物" style="ellipse;fillColor=#d9574a;strokeColor=#333333;fontColor=#000000;" vertex="1" parent="swimlane1">
+      <mxGeometry x="100" y="500" width="100" height="60" as="geometry" />
+    </mxCell>
+  </root>
+</mxGraphModel>
+```
+
+**保存路径**：`电商订单处理流程.drawio`
+
+**用户提示**：
+> 泳道图已生成！保存在 `电商订单处理流程.drawio`，可在 [diagrams.net](https://app.diagrams.net) 打开编辑。如需调整角色、流程步骤或添加判断分支，请告诉我。
