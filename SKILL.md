@@ -3,7 +3,7 @@ name: swimlane-arch
 description: |
   业务流程图×系统架构图，一句话出图。支持横向泳道、竖向泳道和分层架构图，输出Draw.io XML格式直接可编辑。
   触发关键词：泳道图、架构图、流程图、swimlane、一句话出图、画个图、业务流程、系统架构
-version: 1.1.4
+version: 1.1.5
 metadata:
   openclaw:
     requires:
@@ -20,6 +20,13 @@ metadata:
 **版本**: 1.1.4
 
 ---
+
+## ⚡ 30秒体验
+
+对你的Agent说：
+> "画个政务审批泳道图"
+
+一句话生成Draw.io XML — 横向/竖向泳道、分层架构，直接打开就能编辑，配色专业美观。
 
 ## 技能定位
 
